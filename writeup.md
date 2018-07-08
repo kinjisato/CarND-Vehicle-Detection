@@ -254,3 +254,5 @@ Usualy, I use Mac for my work. But, when I need to do some work that requires mo
 
 I don't have so much experience of this sliding window search. It was very difficult to decide window size and start and stop positions. So, I used x1.0 to x 3.0 size of windows, and combined all for heat map. But maybe, these many boxes would increase the computation cost. And maybe, too much windows would make false positives. So, I'd like to reduce the number of sliding windows. And my strong filter would make the detection robust, but sometimes loose white car. How can I improve?
 
+
+I'm very happy if I can have many advise to improve the all of the performance (including computation cost of PC).
