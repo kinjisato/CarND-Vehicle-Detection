@@ -174,11 +174,18 @@ From many many traials of window size (overlap was 75% same as lecture video) an
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-These two were done at the same steps.
+Following images were the results of my sliding windows and classifier.
+(at this test image, No.5 window did not detect cars)
 
-
-
+![alt text][image3]
 ![alt text][image4]
+![alt text][image5]
+![alt text][image6]
+
+All window combined:
+![alt text][image7]
+
+
 ---
 
 ### Video Implementation
