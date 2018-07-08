@@ -22,6 +22,9 @@ The goals / steps of this project are the following:
 [image5]: ./output_images/sw3.png
 [image6]: ./output_images/sw4.png
 [image7]: ./output_images/sw_all.png
+[image8]: ./output_images/sw_fp.png
+[image9]: ./output_images/labels2.png
+[image10]: ./output_images/heatmap2.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -177,6 +180,8 @@ From many many traials of window size (overlap was 75% same as lecture video) an
 Following images were the results of my sliding windows and classifier.
 (at this test image, No.5 window did not detect cars)
 
+The code is in cell 19 to 26.
+
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
@@ -185,6 +190,14 @@ Following images were the results of my sliding windows and classifier.
 All window combined:
 ![alt text][image7]
 
+Other test image
+![alt text][image8]
+
+To delete false positive, I increased the threshold of heatmap to '3'. (code cell 27)
+And then I got following label and heatmap for this image.
+
+![alt text][image9]
+![alt text][image10]
 
 ---
 
