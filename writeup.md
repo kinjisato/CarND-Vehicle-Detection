@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 [image8]: ./output_images/sw_fp.png
 [image9]: ./output_images/labels2.png
 [image10]: ./output_images/heatmap2.png
-[video1]: ./project_video.mp4
+[video1]: ./project_video_output.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -157,7 +157,7 @@ From above parameter set, I got accuracy > 0.99 (99%). One of the reason I used 
 
 ### Sliding Window Search
 
-Here is a link to my [project code](https://github.com/kinjisato/CarND-Vehicle-Detection/blob/master/P01_HOG_005.ipynb).
+Here is a link to my [project code](https://github.com/kinjisato/CarND-Vehicle-Detection/blob/master/P02_SlidingWindow_003.ipynb).
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
@@ -203,33 +203,46 @@ And then I got following label and heatmap for this image.
 
 ### Video Implementation
 
+Here is a link to my [project code](https://github.com/kinjisato/CarND-Vehicle-Detection/blob/master/P02_SlidingWindow_003.ipynb).
+(The iPython notebook is the same as above "sliding window" activity)
+
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+
+Here's a [link to my video result](./project_video_output.mp4)
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+To deliete false positives from each video flame, heat map threshold was not enoguh. So, I made a filter (python class).
+The code is in cell 31, and the code is,
 
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+```python
+# Fileter
+class box_filter():
+    # initialize
+    def __init__(self):
+        self.prev_boxes = [] 
+    
+    
+    def add_boxes(self, new_boxes):
+        # appeend new boxes
+        self.prev_boxes.append(new_boxes)
+        # if previous boxes have more than n flames, delete old boxes
+        if len(self.prev_boxes) > 10:
+            self.prev_boxes = self.prev_boxes[len(self.prev_boxes)-10:]
+```
 
-### Here are six frames and their corresponding heatmaps:
+This filter append and store the boxes of previous 10 flames of video. And the heat map theshold was,
 
-![alt text][image5]
+```python
+heat = apply_threshold(heat,1+len(SW_boxes_filter.prev_boxes)*4)
+```
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
-
+This threshold was tuned with the results of ouput video. To delite the most of false positives, I used this value. Maybe this filter was strong and even if the sliding window was detecting corretly, small number of heat were also delited. But most of the time in the video, this looked working well.
 
 ---
 
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
