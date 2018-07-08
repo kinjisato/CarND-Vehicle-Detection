@@ -124,7 +124,7 @@ hist_feat = True # Histogram features on or off
 hog_feat = True # HOG features on or off
 ```
 
-From above parameter set, I got accuracy > 0.99 (99%). One of the reason I used `Pixcels per cellsn = 8` same as lecture video was from this 0.99 accuracy with spatial and coloer hist.
+From above parameter set, I got accuracy > 0.99 (99%). One of the reason I used `Pixcels per cellsn = 8` same as lecture video was from this 0.99 accuracy with spatial and coloer hist. And I thought this accuray should be ok for next.
 
 ### Sliding Window Search
 
