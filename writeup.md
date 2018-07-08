@@ -48,16 +48,12 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 ![alt text][image2]
 
 
-| No.         		|     Color space       			| 
-|:---------------------:|:---------------------------------------------:| 
-| output_images         		| output images those from my code  							| 
-| P01_camera_calibration.ipynb     	| iPython code for camera calibration 	|
-| P02_test_image_pipeline.ipynb					|	iPython code for detecting pipeline from given test images						|
-| P03_AdvancedLaneLines_video_003.ipynb     	| iPython code to generate video with detected pipeline from given video 	|
-| README.md				|	This document								|
-| project_video_output.mp4     	| Generated video from given "project_video.mp4" 	|
-| wide_dist_pickle.p     	| Pickle file including camera calibration parameter (required in P02 and P03) 	|
-| writeup.md     	| Writeup document for submit 	|
+It was difficult to evaluate the performance of HOG with different parameter valuse form the HOG images. So, I decided to evaluate those from the accuracy of LinerSVC to decide vehicle or not vehicle. Followig are the parameter set and the accuracy from LinerSVC.
+
+| No. | Color space | Orientations | Pixels per cells | Cells per block | HOG channel | Accuracy from LinearSVC 
+|:---:|:-----------:|:------------:|:----------------:|:---------------:|:-----------:|:----------------------:|
+| 1		| RGB         | 9            | 8                | 2               | ALL         | 0.9257
+
 
 
 
