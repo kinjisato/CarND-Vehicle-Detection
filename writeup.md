@@ -53,6 +53,12 @@ It was difficult to evaluate the performance of HOG with different parameter val
 | No. | Color space | Orientations | Pixels per cells | Cells per block | HOG channel | Accuracy from LinearSVC 
 |:---:|:-----------:|:------------:|:----------------:|:---------------:|:-----------:|:----------------------:|
 | 1		| RGB         | 9            | 8                | 2               | ALL         | 0.9257
+| 2		| HSV         | 9            | 8                | 2               | 0           | 0.9003
+| 3		| HSV         | 9            | 8                | 2               | 1           | 0.9046
+| 4		| HSV         | 9            | 8                | 2               | 2           | 0.9175
+| 5		| HSV         | 9            | 8                | 2               | ALL         | 0.9614
+
+
 
 
 
