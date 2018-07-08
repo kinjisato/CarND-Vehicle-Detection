@@ -75,8 +75,19 @@ It was difficult to evaluate the performance of HOG with different parameter val
 | 21	| YCrCb       | 9            | 8                | 2               | ALL         | 0.9665
 
 
+From the above results, I can say HOG channel = `ALL` give better results than others. Unfortunately I don't know why memory erro occured when I ran with color space = `LUV`. `RGB` gave lower score than others.
+Next, I evaluste different `orientations` value at the case of `HSV`, `HLS`, `YUV` and `YCrCb`
 
-
+| No. | Color space | Orientations | Pixels per cells | Cells per block | HOG channel | Accuracy from LinearSVC 
+|:---:|:-----------:|:------------:|:----------------:|:---------------:|:-----------:|:----------------------:|
+| 1		| HSV         | 6            | 8                | 2               | ALL         | 0.9578
+| 2		| HSV         | 12           | 8                | 2               | ALL         | 0.955
+| 1		| HLS         | 6            | 8                | 2               | ALL         | 0.962
+| 2		| HLS         | 12           | 8                | 2               | ALL         | 0.9513
+| 1		| YUV         | 6            | 8                | 2               | ALL         | 0.9665
+| 2		| YUV         | 12           | 8                | 2               | ALL         | 0.9606
+| 1		| YCrCb       | 6            | 8                | 2               | ALL         | 0.9682
+| 2		| YCrCb       | 12           | 8                | 2               | ALL         | 0.964
 
 
 
