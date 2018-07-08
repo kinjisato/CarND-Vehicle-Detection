@@ -34,6 +34,8 @@ The goals / steps of this project are the following:
 
 ### Histogram of Oriented Gradients (HOG)
 
+Here is a link to my [project code](https://github.com/kinjisato/CarND-Vehicle-Detection/blob/master/P01_HOG_005.ipynb).
+
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
 The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
@@ -42,10 +44,32 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 ![alt text][image1]
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`). 
 Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ![alt text][image2]
+
+The code for this extraction is in cell 12.
+
+```python
+img = img_car
+features_car = []
+hog_image_car = []
+for channel in range(img.shape[2]):
+    features, hog_image = get_hog_features(img[:,:,channel], orient, pix_per_cell, cell_per_block, 
+                            vis=True, feature_vec=True)
+    features_car.append(features)
+    hog_image_car.append(hog_image)
+
+img = img_notcar
+features_notcar = []
+hog_image_notcar = []
+for channel in range(img.shape[2]):
+    features, hog_image = get_hog_features(img[:,:,channel], orient, pix_per_cell, cell_per_block, 
+                            vis=True, feature_vec=True)
+    features_notcar.append(features)
+    hog_image_notcar.append(hog_image)
+```
+
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
@@ -104,6 +128,8 @@ Next, I evaluated different `Pixcles per cells` for `YUV` and `YCrCb`.
 
 When the `Pixcels per cells` are low value, those took much computation time and memory error occured. Higher value gave better results than lower value. I'm not sure how much effect on later project...
 `YCrCb` gave better results constantly than other color space, so I choosed `YCrCb` for color space, and for other parameters, I choosed the defalut value those used in the lecuture video.
+
+The code for training is in cell 17 and 18 in my iPython notebook.
 
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
