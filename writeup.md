@@ -17,11 +17,11 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [image1]: ./output_images/car_not_car.png
 [image2]: ./output_images/hog_examples.png
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
+[image3]: ./output_images/sw1.png
+[image4]: ./output_images/sw2.png
+[image5]: ./output_images/sw3.png
+[image6]: ./output_images/sw4.png
+[image7]: ./output_images/sw_all.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -154,15 +154,29 @@ From above parameter set, I got accuracy > 0.99 (99%). One of the reason I used 
 
 ### Sliding Window Search
 
+Here is a link to my [project code](https://github.com/kinjisato/CarND-Vehicle-Detection/blob/master/P01_HOG_005.ipynb).
+
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I did this step by step. First, I read the my LinerSVC classifer parameter from previous HOG extraction activity. 
+I was very confused that even if I used the same SVC parameters I loaded from the same pickle file, the classifier result from the same sliding window were different at each time when I close and open my jupyter notebook.
 
-![alt text][image3]
+From many many traials of window size (overlap was 75% same as lecture video) and number of false posirive, I decided following window size, start and stop positions.
+
+| No. | ystart | ystop | scale, window size | Overlap
+|:---:|:------:|:-----:|:------------------:|:-----------------:|
+| 1	  | 400    | 480   | x1.0, 64 x 64      | 75%
+| 2	  | 400    | 496   | x1.5, 96 x 96      | 75%
+| 3	  | 400    | 528   | x2.0, 128 x 128    | 75%
+| 4	  | 400    | 560   | x2.5, 160 x 160    | 75%
+| 5	  | 464    | 656   | x3.0, 196 x 196    | 75%
+
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+These two were done at the same steps.
+
+
 
 ![alt text][image4]
 ---
