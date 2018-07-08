@@ -47,6 +47,7 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 
 ![alt text][image2]
 
+#### 2. Explain how you settled on your final choice of HOG parameters.
 
 It was difficult to evaluate the performance of HOG with different parameter valuse form the HOG images. So, I decided to evaluate those from the accuracy of LinerSVC to decide vehicle or not vehicle. Followig are the parameter set and the accuracy from LinerSVC.
 
@@ -82,20 +83,28 @@ Next, I evaluste different `orientations` value at the case of `HSV`, `HLS`, `YU
 |:---:|:-----------:|:------------:|:----------------:|:---------------:|:-----------:|:----------------------:|
 | 1		| HSV         | 6            | 8                | 2               | ALL         | 0.9578
 | 2		| HSV         | 12           | 8                | 2               | ALL         | 0.955
-| 1		| HLS         | 6            | 8                | 2               | ALL         | 0.962
-| 2		| HLS         | 12           | 8                | 2               | ALL         | 0.9513
-| 1		| YUV         | 6            | 8                | 2               | ALL         | 0.9665
-| 2		| YUV         | 12           | 8                | 2               | ALL         | 0.9606
-| 1		| YCrCb       | 6            | 8                | 2               | ALL         | 0.9682
-| 2		| YCrCb       | 12           | 8                | 2               | ALL         | 0.964
+| 3		| HLS         | 6            | 8                | 2               | ALL         | 0.962
+| 4		| HLS         | 12           | 8                | 2               | ALL         | 0.9513
+| 5		| YUV         | 6            | 8                | 2               | ALL         | 0.9665
+| 6		| YUV         | 12           | 8                | 2               | ALL         | 0.9606
+| 7		| YCrCb       | 6            | 8                | 2               | ALL         | 0.9682
+| 8		| YCrCb       | 12           | 8                | 2               | ALL         | 0.964
 
 
+From above results, different orientation value gave small impact on the accuracy. So, I choosed `9` for `orientation` as same as the lecture video. At the case of `Color space` of `HSV` and `HLS`, those results were lower than others, so I choose `YUV` and `YCrCb` for next step.
 
+Next, I evaluated different `Pixcles per cells` for `YUV` and `YCrCb`.
 
+| No. | Color space | Orientations | Pixels per cells | Cells per block | HOG channel | Accuracy from LinearSVC 
+|:---:|:-----------:|:------------:|:----------------:|:---------------:|:-----------:|:----------------------:|
+| 1		| YUV         | 9            | 4                | 2               | ALL         | Memory error
+| 2		| YUV         | 9            | 16               | 2               | ALL         | 0.9794
+| 3		| YCrCb       | 9            | 4                | 2               | ALL         | Memory error
+| 4		| YCrCb       | 9            | 16               | 2               | ALL         | 0.9797
 
-#### 2. Explain how you settled on your final choice of HOG parameters.
+When the `Pixcels per cells` are low value, those took much computation time and memory error occured. Higher value gave better results than lower value. I'm not sure how much effect on later project...
+`YCrCb` gave better results constantly than other color space, so I choosed `YCrCb` for color space, and for other parameters, I choosed the defalut value those used in the lecuture video.
 
-I tried various combinations of parameters and...
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
