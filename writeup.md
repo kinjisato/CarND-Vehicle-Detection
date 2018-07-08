@@ -57,6 +57,24 @@ It was difficult to evaluate the performance of HOG with different parameter val
 | 3		| HSV         | 9            | 8                | 2               | 1           | 0.9046
 | 4		| HSV         | 9            | 8                | 2               | 2           | 0.9175
 | 5		| HSV         | 9            | 8                | 2               | ALL         | 0.9614
+| 6		| LUV         | 9            | 8                | 2               | 0           | 0.9203
+| 7		| LUV         | 9            | 8                | 2               | 1           | Memory error
+| 8		| LUV         | 9            | 8                | 2               | 2           | Memory error
+| 9		| LUV         | 9            | 8                | 2               | ALL         | Memory error
+| 10	| HLS         | 9            | 8                | 2               | 0           | 0.8953
+| 11	| HLS         | 9            | 8                | 2               | 1           | 0.9195
+| 12	| HLS         | 9            | 8                | 2               | 2           | 0.8981
+| 13	| HLS         | 9            | 8                | 2               | ALL         | 0.9555
+| 14	| YUV         | 9            | 8                | 2               | 0           | 0.9257
+| 15	| YUV         | 9            | 8                | 2               | 1           | 0.8986
+| 16	| YUV         | 9            | 8                | 2               | 2           | 0.9336
+| 17	| YUV         | 9            | 8                | 2               | ALL         | 0.9642
+| 18	| YCrCb       | 9            | 8                | 2               | 0           | 0.9158
+| 19	| YCrCb       | 9            | 8                | 2               | 1           | 0.9243
+| 20	| YCrCb       | 9            | 8                | 2               | 2           | 0.8913
+| 21	| YCrCb       | 9            | 8                | 2               | ALL         | 0.9665
+
+
 
 
 
