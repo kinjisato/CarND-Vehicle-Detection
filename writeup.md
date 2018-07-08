@@ -246,3 +246,11 @@ This threshold was tuned with the results of ouput video. To delite the most of 
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
+### HOG and classifier
+Maybe, there are many parameter combinations of HOG, spatial, hist...for feature extraction. And some combinations would give high accuracy for classifier. (This is from my evaluation results) If I have much time to check and evaluate the performance of parameter combination, that would be good. But, actualy, it is difficult to search all of the parameter combination. Is there any more effectie search for choosing paramter values?
+
+### Sliding window
+Usualy, I use Mac for my work. But, when I need to do some work that requires more computation performance, I use Windows PC. Is there any problem when I use pickle file in Mac, that was saved in Windows PC? Because as I explained above, when I run my sliding window, sometimes the result was much different. (My LinerSVC had 99% accuracy...)
+
+I don't have so much experience of this sliding window search. It was very difficult to decide window size and start and stop positions. So, I used x1.0 to x 3.0 size of windows, and combined all for heat map. But maybe, these many boxes would increase the computation cost. And maybe, too much windows would make false positives. So, I'd like to reduce the number of sliding windows. And my strong filter would make the detection robust, but sometimes loose white car. How can I improve?
+
